@@ -11,9 +11,11 @@ body {
 
 .subscribe-form {
   position: fixed;
-  top: 50%;
+  /* top: 50%; */
+  top: -100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%) scale(1.15);
   width: calc(100%-20px);
   max-width: 650px;
   background: #fff;
@@ -21,5 +23,90 @@ body {
   display: grid;
   gap: 10px;
   padding: 50px 40px 40px;
-  grid-template-columns: repeat(2, 1fr);
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.05);
+  /* last add */
+  z-index: 2;
+  opacity: 0;
+  transition: top 0ms ease-in-out 0ms, transform 300ms ease-in-out 0ms,
+    opacity 300ms ease-in-out 0ms;
+}
+.subscribe-form.active {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: top 0ms ease-in-out 0ms, transform 300ms ease-in-out 0ms,
+    opacity 300ms ease-in-out 0ms;
+}
+
+.subscribe-form .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  font-size: larger;
+  color: #555;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.subscribe-form .left {
+  display: flex;
+  align-items: center;
+}
+
+.subscribe-form .right h1 {
+  font-size: 28px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.subscribe-form .right p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.subscribe-form .right .form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.subscribe-form .right .form .input {
+  margin-bottom: 10px;
+}
+
+.subscribe-form .right .form input {
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+}
+.subscribe-form .right .form button {
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #8064b1;
+  color: #fff;
+  box-shadow: 0px 2px 2px #ddd;
+}
+
+@media (min-width: 680px) {
+  .subscribe-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
